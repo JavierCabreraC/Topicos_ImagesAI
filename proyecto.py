@@ -69,7 +69,7 @@ test = data.skip(train_size+val_size).take(test_size)
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, Dense, Flatten, Dropout
 
-num_classes = 4
+num_classes = 5
 model = Sequential()
 
 model.add(Conv2D(16, (3,3), 1, activation='relu', input_shape=(256,256,3)))
@@ -136,7 +136,7 @@ print(acc.result())
 
 # 10 - Testeo de Imágenes:
 
-img = cv2.imread('microwave.jpg')
+img = cv2.imread('desayuno.jpg')
 plt.imshow(img)
 plt.show()
 
@@ -152,7 +152,7 @@ yhat = model.predict(np.expand_dims(resize/255, 0))
 #     print(f'La clase es: Café')
 
 predicted_class = np.argmax(yhat, axis=1)
-class_names = ['coffee', 'happy', 'sad', 'watches']  # Replace with your actual class names
+class_names = ['diez', 'veinte', 'cincuenta', 'cien', 'doscientos']  # Replace with your actual class names
+print(class_names)
 print(f'La clase es: {class_names[predicted_class[0]]}')
-
 
